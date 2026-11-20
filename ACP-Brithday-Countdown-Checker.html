@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>My Birthday Countdown Checker</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { font-family: Arial, sans-serif; background: linear-gradient(to right, #ffecd2, #fcb69f); text-align: center; }
+.card { width: 400px; max-width: 90%; margin: auto; background: white; border: 2px solid #ff6b6b; border-radius: 15px; padding: 20px; margin-top: 20px; }
+h1 { color: #ff6b6b; }
+button { background: #ff6b6b; color: white; border: none; border-radius: 10px; padding: 10px 20px; cursor: pointer; font-size: 1rem; }
+.box { background: #fff3cd; border: 2px dashed #ff6b6b; border-radius: 10px; padding: 15px; margin-top: 10px; text-align: left; }
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>🎂 My Birthday Countdown Checker</h1>
+
+<button onclick="checkCountdown()">Check Countdown</button>
+
+<div class="box">
+<b>Missing Details:</b>
+<p id="missing"></p>
+</div>
+
+<div class="box">
+<b>Greeting:</b>
+<p id="greeting"></p>
+</div>
+
+<div class="box">
+<b>Days Left:</b>
+<p id="message"></p>
+</div>
+
+<div class="box">
+<b>Countdown:</b>
+<p id="countdown"></p>
+</div>
+</div>
+
+<script>
+function checkCountdown() {
+  let friendName = "Zara";
+  let daysLeft = 3;
+  let hour = 9;
+
+  let giftName = null;
+  let cakeFlavour;
+  document.getElementById("missing").innerHTML = "Missing details: gift: " + giftName + "<br>Cake flavour: " + cakeFlavour;
+
+  let greeting;
+  if (hour < 12) {
+    greeting = "Good morning";
+  } else if (hour < 17) {
+    greeting = "Good afternoon";
+  } else {
+    greeting = "Good evening";
+  }
+  document.getElementById("greeting").innerHTML = greeting + ", " + friendName + "!";
+
+  let daysMessage;
+  if (daysLeft == 0) {
+    daysMessage = "Today is the party!";
+  } else if (daysLeft == 1) {
+    daysMessage = "Tomorrow is the party!";
+  } else {
+    daysMessage = daysLeft + " days to go!";
+  }
+  document.getElementById("message").innerHTML = daysMessage;
+
+  let day = daysLeft;
+  let countdownText = "";
+  while (day > 0) {
+    countdownText = countdownText + "Days left: " + day + "<br>";
+    day = day - 1;
+  }
+  countdownText = countdownText + "Party time!";
+  document.getElementById("countdown").innerHTML = countdownText;
+}
+</script>
+
+</body>
+</html>
